@@ -15,10 +15,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.bannercard{
-    background-color: rgba(205, 219, 219, 0.747);
-   
-}
+
 .bannercard:hover{
     
     background-color: beige;
