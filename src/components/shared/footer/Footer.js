@@ -5,11 +5,11 @@ import React from 'react';
 const Footer = () => {
 
     return (
-        <Box>
+        <Box sx={{p:5}}>
              <Typography variant="subtitle1" gutterBottom component="div">
-                &copy; - 2021 All Right Served By Car House Ltd.
+                &copy; 2021 All Right Served By Car House Ltd.
             </Typography>
-            
+
         </Box>
 
             

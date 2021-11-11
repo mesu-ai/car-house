@@ -8,6 +8,7 @@ import Login from './pages/login/Login';
 import Explore from './pages/explore/Explore.js';
 import Navbar from './components/shared/Navbar';
 import Dashboard from './pages/dashboard/Dashboard';
+import Footer from './components/shared/footer/Footer';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       <Route path="/faq"><FAQ /> </Route>
         
       </Switch>
+      <Footer></Footer>
     </BrowserRouter>
 
     

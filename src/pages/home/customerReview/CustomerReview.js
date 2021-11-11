@@ -25,7 +25,7 @@ const CustomerReview = () => {
         <Box style={reviewbg} sx={{mt:10, mb:4}}>
         <Container sx={{}}>
         <Box sx={{textAlign:'start',py:4}}>
-        <Typography sx={{fontWeight:'bold',color:'crimson'}} variant="h5" gutterBottom component="div">
+        <Typography sx={{fontWeight:'bold',color:'info.main'}} variant="h5" gutterBottom component="div">
         Customer Review
         </Typography>
         <Typography sx={{fontWeight:'bold',color:'black'}} variant="h4" gutterBottom component="div">
