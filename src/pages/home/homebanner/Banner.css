@@ -1,0 +1,26 @@
+/* goole font Merriweather */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap');
+
+/*google font opensans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+
+.textfont{
+    font-family: 'Merriweather', serif;
+   
+
+}
+
+.cardfont{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bannercard{
+    background-color: rgba(205, 219, 219, 0.747);
+   
+}
+.bannercard:hover{
+    
+    background-color: beige;
+}
+

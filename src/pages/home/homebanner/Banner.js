@@ -1,4 +1,4 @@
-
+import './Banner.css';
 import { Container, Grid,Button,Typography } from '@mui/material';
 import { Box,} from '@mui/system';
 import React from 'react';
@@ -12,7 +12,8 @@ const bannerBg={
     backgroundBlendMode:'screen',
     // objectFit: 'cover',
     backgroundPosition: 'center',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    paddingBottom:'80px'
 
 }
 
@@ -25,17 +26,20 @@ const Banner = () => {
             <Container >
             <Grid container spacing={5} >
                 <Grid item xs={12} md={6} lg={5} sx={{textAlign:'start',display:'flex',flexDirection:'column',alignItems:'start',justifyContent:'center'}}>
-                    <Typography  sx={{fontWeight:'bold'}} variant="h3">
-                        Your New Smile <br />
-                        Starts Here
+
+                    
+                    
+                    <Typography variant="h3">
+                    <span className="textfont" style={{fontWeight:'bold',color:'crimson'}}>The Easiest way  </span> <br />
+                    To find your new car !
 
                     </Typography>
 
                     <Typography sx={{my:5}} component="div" variant="p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut harum eius, laboriosam totam odit aliquam officiis in enim quis neque quas non omnis culpa ab?
+                    CarHouse is building a better automotive buying experience for everyone, by offering the largest selection of new and used cars in the Bangladesh. It's a largest place where you can find Your Desired Car !
                     </Typography>
 
-                <Button variant="contained">GET APPOINTMENT</Button>
+                <Button style={{backgroundColor:'darkcyan'}} variant="contained">Explore More</Button>
 
 
                
