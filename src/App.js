@@ -9,6 +9,7 @@ import Explore from './pages/explore/Explore.js';
 import Navbar from './components/shared/Navbar';
 import Dashboard from './pages/dashboard/Dashboard';
 import Footer from './components/shared/footer/Footer';
+import Register from './pages/login/register/Register';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path="/about"> <About/> </Route>
       <Route path="/contract"> <Contract/></Route>
       <Route path="/login"> <Login /> </Route>
+      <Route path="/register"> <Register /> </Route>
 
       <Route path='/dashboard'> <Dashboard/> </Route>
       
