@@ -16,7 +16,7 @@ const useCars = () => {
     },[]);
     // console.log(cars,latestCars);
 
-    return {cars,latestCars};
+    return {cars,setCars,latestCars};
 };
 
 export default useCars;
