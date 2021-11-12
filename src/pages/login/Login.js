@@ -1,7 +1,8 @@
-import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
-
-import { Box } from '@mui/system';
 import React from 'react';
+import '../login/Login.css';
+
+import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 import cover from '../../images/logincover.png';
 import google from '../../images/google.png';
@@ -9,13 +10,9 @@ import bg from '../../images/loginbg.png';
 
 
 const loginBg={
-     background:`url(${bg})`,
+    background:`url(${bg})`,
     backgroundRepeat:'no-repeat',
-    // backgroundImage: 'linear-gradient(rgb(238, 238, 183),rgb(33, 146, 167))',
-    // backgroundBlendMode:'darken',
-     height:'100vh',
-    
-    
+    height:'100vh',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     // paddingBottom:'80px'
@@ -35,12 +32,12 @@ const Login = () => {
             <Grid container spacing={2}>
                 
 
-                <Grid item xs={12} md={7} sx={{}}>
-                    <img width="80%" src={cover} alt="Login Car Cover" />
+                <Grid  item xs={12} sm={6} md={7} sx={{ display: { xs: 'none',sm:'flex', md: 'flex' } }}>
+                    <img  width="80%" src={cover} alt="Login Car Cover" />
                 
                 </Grid>
-                <Grid item xs={12} md={5}>
-                <Typography sx={{fontWeight:'bold',mb:4}} variant="h4" gutterBottom component="div">
+                <Grid item xs={12} sm={6} md={5}>
+                <Typography className="loginfont" sx={{fontWeight:'bold',mb:4}} variant="h4" gutterBottom component="div">
                 Login Your Account
                </Typography>
 

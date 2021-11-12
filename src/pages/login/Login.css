@@ -1,3 +1,5 @@
-.loginbg{
-    background-image: linear-gradient(rgb(240, 240, 154),rgb(58, 158, 175));
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+.loginfont{
+    font-family: 'Roboto Condensed', sans-serif;
 }
