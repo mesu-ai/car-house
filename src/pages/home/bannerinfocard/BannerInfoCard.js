@@ -31,7 +31,7 @@ const BannerInfoCard = () => {
                     <Typography className="cardfont" sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
                     Recondition Car
                     </Typography>
-                    <Button sx={{backgroundColor:'tomato'}} variant="contained">Explore</Button>
+                    <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
                     
                     
                 </Paper>

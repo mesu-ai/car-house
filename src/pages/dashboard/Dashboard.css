@@ -22,3 +22,24 @@
     color: black;
 }
 
+.addcarbg{
+    margin-top: -90px;
+    background-image: linear-gradient(white,black);
+    background:url(../../images/addcarcover2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* backgroundPosition: 'center',
+    backgroundSize: 'cover', */
+
+}
+.addcar-form{
+    background-color: rgba(253, 247, 222, 0.884);
+    padding: 30px;
+    color: white;
+    
+}
+.form-container label{
+    color:navy;
+    font-weight: bold;
+}
+

@@ -3,7 +3,7 @@ import './ServiceCard.css';
 import React from 'react';
 
 const ServiceCard = ({latest}) => {
-    const {title,price,details} =latest;
+    const {model,brand,price,rating,photo} =latest;
 
 
 
@@ -14,15 +14,18 @@ const ServiceCard = ({latest}) => {
                 <CardMedia
                 component="img"
                 height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
+                image={photo}
                 alt="green iguana"
                 />
                 <CardContent >
-                <Typography gutterBottom variant="h5" component="div">
-                    {title}
+                <Typography sx={{textTransform:'capitalize'}} gutterBottom variant="h5" component="div">
+                    {model}
+                </Typography>
+                <Typography sx={{textTransform:'capitalize'}} gutterBottom variant="h5" component="div">
+                    {price}
                 </Typography>
                 <Typography sx={{textAlign:'justify'}} variant="body2" color="text.secondary">
-                    {details}
+                    {rating}
                 </Typography>
                 </CardContent>
             </CardActionArea>
