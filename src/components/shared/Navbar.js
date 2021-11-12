@@ -113,6 +113,8 @@ export default function Navbar() {
       </MenuItem>
       </Link>
 
+      {user.email && 
+
       <Link style={{textDecoration:'none',color:'black'}} to='/dashboard'>
       <MenuItem>
         <IconButton
@@ -124,9 +126,16 @@ export default function Navbar() {
         <p>Dashboard</p>
       </MenuItem>
       </Link>
-
+      }
       
-      <MenuItem onClick={handleProfileMenuOpen}>
+
+      {user.email &&
+          <MenuItem>
+           <p style={{color:'crimson'}}>{user.displayName}</p>
+          </MenuItem>
+      }
+      
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -137,15 +146,11 @@ export default function Navbar() {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
 
-      <MenuItem>
-          <IconButton size="large" color="inherit" >   
-          <LogoutRounded /> 
-          </IconButton>
-          <p>LogOut</p>
-        </MenuItem>
-        
+      {
+        !user.email ? 
+
         <Link style={{textDecoration:'none',color:'black'}} to='/login'>     
           <MenuItem>
           <IconButton size="large" color="inherit" >   
@@ -153,7 +158,20 @@ export default function Navbar() {
           </IconButton>
           <p>LogIn</p>
           </MenuItem>
-        </Link>
+        </Link> :
+
+        <MenuItem onClick={userLogOut}>
+          <IconButton  size="large" color="inherit" >   
+          <LogoutRounded /> 
+          </IconButton>
+          <p>LogOut</p>
+        </MenuItem>
+
+      }
+
+      
+        
+        
     </Menu>
   );
 
