@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import cover from '../../images/logincover.png';
 import google from '../../images/google.png';
 import bg from '../../images/loginbg.png';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 
 
 const loginBg={
@@ -21,7 +21,7 @@ const loginBg={
 }
 
 const Login = () => {
-   const {signInUsingGoogle}= useFirebase();
+   const {signInUsingGoogle}= useAuth();
     const [loginData,setLoginData]=useState({});
 
 
