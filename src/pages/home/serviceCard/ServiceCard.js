@@ -1,9 +1,9 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
 import './ServiceCard.css';
 import React from 'react';
 
 const ServiceCard = ({latest}) => {
-    const {model,brand,price,rating,photo} =latest;
+    const {model,feature,price,rating,photo} =latest;
 
 
 
@@ -18,14 +18,28 @@ const ServiceCard = ({latest}) => {
                 alt="green iguana"
                 />
                 <CardContent >
-                <Typography sx={{textTransform:'capitalize'}} gutterBottom variant="h5" component="div">
+
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={7}>
+                    
+                    <Typography sx={{textTransform:'uppercase'}} gutterBottom variant="h5" component="div">
                     {model}
-                </Typography>
-                <Typography sx={{textTransform:'capitalize'}} gutterBottom variant="h5" component="div">
+                    </Typography>
+                        
+                    </Grid>
+                    <Grid item xs={12} md={5}>
+                    <Typography sx={{fontWeight:'bold',color:'info.main'}} gutterBottom variant="h5" component="div">
                     {price}
-                </Typography>
-                <Typography sx={{textAlign:'justify'}} variant="body2" color="text.secondary">
-                    {rating}
+                    </Typography>
+                    
+                    </Grid>
+                </Grid>
+
+                <Rating name="read-only" value={rating} readOnly />
+
+                <Typography sx={{textTransform:'capitalize',textAlign:'start'}} variant="subtitle1" gutterBottom component="div">
+
+                    {feature}
                 </Typography>
                 </CardContent>
             </CardActionArea>
