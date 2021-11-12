@@ -10,11 +10,13 @@ import Navbar from './components/shared/Navbar';
 import Dashboard from './pages/dashboard/Dashboard';
 import Footer from './components/shared/footer/Footer';
 import Register from './pages/login/register/Register';
+import  AuthProvider  from '../src/contex/AuhProvider';
 
 
 function App() {
   return (
     <div className="App">
+    <AuthProvider>
     <BrowserRouter>
     <Navbar></Navbar>
     <Switch>
@@ -36,6 +38,7 @@ function App() {
       </Switch>
       <Footer></Footer>
     </BrowserRouter>
+    </AuthProvider>
 
     
   </div>

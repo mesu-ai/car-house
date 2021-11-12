@@ -10,11 +10,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {InfoRounded,Home,LoginRounded,LogoutRounded,LocalTaxiRounded,DashboardRounded } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { ListItemButton, ListItemText } from '@mui/material';
+import { Button, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 
 export default function Navbar() {
+  const {user,userLogOut}=useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -200,24 +202,20 @@ export default function Navbar() {
           </ListItemButton>
           </Link>
           
-          <Link style={{textDecoration:'none',color:'white'}} to='/login'>
-          <ListItemButton>
-           <ListItemText primary="Login" />
-          </ListItemButton>
-          </Link>
-
-          <Link style={{textDecoration:'none',color:'black'}} to='/dashboard'>
-          <ListItemButton>
-          <DashboardRounded/> 
-          <ListItemText sx={{ml:1,fontWeight:'bold'}} primary="Dashboard" />      
-         </ListItemButton>
           
-          </Link>
+         {user.email &&
+         
+         <Link style={{textDecoration:'none',color:'black'}} to='/dashboard'>
+         <ListItemButton sx={{display:'flex',alignItems:'center'}}>
+         <DashboardRounded/> 
+         <ListItemText sx={{ml:1,fontWeight:'bold'}} primary="Dashboard" />      
+        </ListItemButton>
+         </Link>
+         
+         }
+          
 
-            
-
-              
-            <IconButton
+          {/* <IconButton
               size="large"
               edge="end"
               aria-label="account of current user"
@@ -228,7 +226,36 @@ export default function Navbar() {
             >
               <AccountCircle />
 
-            </IconButton>
+            </IconButton> */}
+
+            {user.email &&
+            <span style={{display:'flex',alignItems:'center'}}>{user.displayName}</span>
+            
+            }
+
+          {
+            !user.email?
+
+            <Link style={{textDecoration:'none',color:'white'}} to='/login'>
+            <ListItem>
+              <Button variant="contained" sx={{backgroundColor:'crimson',ml:2}}>
+              Login
+              </Button>
+            </ListItem>
+            </Link>
+
+            :
+            <Box>
+            <ListItem>
+              <Button onClick={userLogOut} variant="contained"  sx={{backgroundColor:'crimson',ml:2}}>
+              LogOut
+              </Button>
+            </ListItem>
+            </Box>
+
+          }
+
+          
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
