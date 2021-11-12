@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import '../Login.css';
 
-import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Button, CircularProgress, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 import cover from '../../../images/logincover.png';
 import google from '../../../images/google.png';
 import bg from '../../../images/loginbg.png';
+import useAuth from '../../../hooks/useAuth';
 
 
 const loginBg={
@@ -20,7 +21,13 @@ const loginBg={
 }
 
 const Register = () => {
+    const {isLoading,error,signInUsingGoogle,signUpUsingEmailPassword}= useAuth();
     const [regiserData,setRegisterData]=useState({});
+
+
+    const googleLogin=()=>{
+        signInUsingGoogle();
+    }
 
 
 
@@ -38,6 +45,7 @@ const Register = () => {
 
     const submitHandler=(e)=>{
         console.log(regiserData);
+        signUpUsingEmailPassword(regiserData.name,regiserData.email,regiserData.password);
 
         e.preventDefault();
 
@@ -62,6 +70,10 @@ const Register = () => {
                 <Typography className="loginfont" sx={{fontWeight:'bold',mb:4}} variant="h4" gutterBottom component="div">
                 Register Your Account
                </Typography>
+
+               { isLoading ? <CircularProgress /> :
+
+               <Box>
 
                <form onSubmit={submitHandler}>
                
@@ -98,10 +110,17 @@ const Register = () => {
                 
                 /> <br />
 
+                {error &&
+                <Typography sx={{color:'crimson',mt:2,fontSize:20,fontWeight:'bold'}} variant="p" gutterBottom component="div"> {error} </Typography>
+                
+                }
+
                 <Button  fullWidth type="submit" sx={{backgroundColor:'info.main',mt:3,fontWeight:'bold'}} variant="contained">Register</Button>
 
 
                </form>
+               
+            
                 
                 <Link style={{textDecoration:'none'}} to="/login">
                <Typography sx={{mt:3,fontWeight:'bold',fontSize:20}} variant="p" display="block" gutterBottom>
@@ -109,11 +128,14 @@ const Register = () => {
                 </Typography>
                 </Link>
 
+                
                 <h3 style={{color:'crimson'}}>OR</h3>
-                <img src={google} alt="" height="" width="40px"></img>
+                <img onClick={googleLogin} src={google} alt="" height="" width="40px"></img>
 
 
-               
+               </Box>
+            }
+
                 </Grid>
                 
                 

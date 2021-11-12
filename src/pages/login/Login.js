@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../login/Login.css';
 
-import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Button, CircularProgress, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 import cover from '../../images/logincover.png';
@@ -21,7 +21,7 @@ const loginBg={
 }
 
 const Login = () => {
-   const {signInUsingGoogle}= useAuth();
+   const {isLoading,error,signInUsingGoogle,signInUsingEmailPassword}= useAuth();
     const [loginData,setLoginData]=useState({});
 
 
@@ -38,13 +38,13 @@ const Login = () => {
         newLoginData[field]=value;
         setLoginData(newLoginData);
 
-
-
     }
 
 
     const submitHandler=(e)=>{
         console.log(loginData);
+       
+        signInUsingEmailPassword(loginData.email,loginData.password);
 
         e.preventDefault();
 
@@ -65,6 +65,10 @@ const Login = () => {
                 <Typography className="loginfont" sx={{fontWeight:'bold',mb:4}} variant="h4" gutterBottom component="div">
                 Login Your Account
                </Typography>
+
+               { isLoading ? <CircularProgress/> :
+               
+               <Box>
 
                <form  onSubmit={submitHandler}>
                
@@ -90,10 +94,16 @@ const Login = () => {
                 
                 /> <br />
 
+                {error &&
+                <Typography sx={{color:'crimson',mt:2,fontSize:20,fontWeight:'bold'}} variant="p" gutterBottom component="div"> {error} </Typography>
+                
+                }
+
                 <Button  fullWidth type="submit" sx={{backgroundColor:'info.main',mt:3,fontWeight:'bold'}} variant="contained">Login</Button>
 
-
+                   
                </form>
+
                 
                 <Link style={{textDecoration:'none'}} to="/register">
                <Typography sx={{mt:3,fontWeight:'bold',fontSize:20}} variant="p" display="block" gutterBottom>
@@ -104,10 +114,11 @@ const Login = () => {
                 <h3 style={{color:'crimson'}}>OR</h3>
                 <img onClick={googleLogin} src={google} alt="" height="" width="40px"></img>
 
+                </Box>
+                 }
 
-               
                 </Grid>
-                
+                  
                 
             </Grid>
             </Paper>
