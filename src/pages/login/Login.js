@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../login/Login.css';
+import { useHistory,useLocation } from 'react-router';
 
 import { Button, CircularProgress, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
@@ -24,9 +25,12 @@ const Login = () => {
    const {isLoading,error,signInUsingGoogle,signInUsingEmailPassword}= useAuth();
     const [loginData,setLoginData]=useState({});
 
+    const location= useLocation();
+    const history= useHistory();
+
 
     const googleLogin=()=>{
-        signInUsingGoogle();
+        signInUsingGoogle(location,history);
     }
 
 
@@ -44,7 +48,7 @@ const Login = () => {
     const submitHandler=(e)=>{
         console.log(loginData);
        
-        signInUsingEmailPassword(loginData.email,loginData.password);
+        signInUsingEmailPassword(loginData.email,loginData.password,location,history);
 
         e.preventDefault();
 

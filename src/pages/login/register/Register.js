@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Login.css';
-
+import { useHistory,useLocation } from 'react-router';
 import { Button, CircularProgress, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
@@ -21,12 +21,16 @@ const loginBg={
 }
 
 const Register = () => {
+
     const {isLoading,error,signInUsingGoogle,signUpUsingEmailPassword}= useAuth();
     const [regiserData,setRegisterData]=useState({});
 
+    const location= useLocation();
+    const history= useHistory();
+
 
     const googleLogin=()=>{
-        signInUsingGoogle();
+        signInUsingGoogle(location,history);
     }
 
 
@@ -45,7 +49,7 @@ const Register = () => {
 
     const submitHandler=(e)=>{
         console.log(regiserData);
-        signUpUsingEmailPassword(regiserData.name,regiserData.email,regiserData.password);
+        signUpUsingEmailPassword(regiserData.name,regiserData.email,regiserData.password,location,history);
 
         e.preventDefault();
 
