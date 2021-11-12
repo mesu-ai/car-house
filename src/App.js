@@ -31,7 +31,7 @@ function App() {
       <Route path="/login"> <Login /> </Route>
       <Route path="/register"> <Register /> </Route>
 
-      <Route path='/dashboard'> <Dashboard/> </Route>
+      <PrivateRoute path='/dashboard'> <Dashboard/> </PrivateRoute>
       
         
       <Route path="/faq"><FAQ /> </Route>

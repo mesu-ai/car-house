@@ -1,0 +1,24 @@
+.list-item:hover{
+    background-color: rgb(68, 229, 250);
+   
+
+}
+
+
+.list-btn:hover{
+    color: black;
+    font-weight: bold;
+    
+
+}
+
+.list-btn:hover .list-icon{
+    color: black;
+    
+}
+
+.dashboard-item{
+    text-decoration: none;
+    color: black;
+}
+
