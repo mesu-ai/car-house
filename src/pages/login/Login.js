@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../login/Login.css';
 
 import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import cover from '../../images/logincover.png';
 import google from '../../images/google.png';
 import bg from '../../images/loginbg.png';
+import useFirebase from '../../hooks/useFirebase';
 
 
 const loginBg={
@@ -20,8 +21,32 @@ const loginBg={
 }
 
 const Login = () => {
+   const {signInUsingGoogle}= useFirebase();
+    const [loginData,setLoginData]=useState({});
+
+
+    const googleLogin=()=>{
+        signInUsingGoogle();
+    }
+
+
+    const handleOnBlur=(e)=>{
+        const field=e.target.name;
+        const value=e.target.value;
+
+        const newLoginData={...loginData};
+        newLoginData[field]=value;
+        setLoginData(newLoginData);
+
+
+
+    }
+
 
     const submitHandler=(e)=>{
+        console.log(loginData);
+
+        e.preventDefault();
 
     }
     return (
@@ -41,12 +66,14 @@ const Login = () => {
                 Login Your Account
                </Typography>
 
-               <form  style={{}} onSubmit={submitHandler}>
+               <form  onSubmit={submitHandler}>
                
                <TextField
                fullWidth
                 required
-                sx={{display:'flex', flexDirection:'column' ,justifyContent:'center',alignItems:'center'}}
+                onBlur={handleOnBlur}
+                name="email"
+                sx={{mb:2}}
                 id="outlined-required"
                 label="Email Id"
                 type="email"
@@ -54,7 +81,9 @@ const Login = () => {
 
                 <TextField
                 fullWidth
-                
+                required
+                onBlur={handleOnBlur}
+                name="password"
                 id="outlined-password-input"
                 label="Password"
                 type="password"
@@ -73,7 +102,7 @@ const Login = () => {
                 </Link>
 
                 <h3 style={{color:'crimson'}}>OR</h3>
-                <img src={google} alt="" height="" width="40px"></img>
+                <img onClick={googleLogin} src={google} alt="" height="" width="40px"></img>
 
 
                

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Login.css';
 
 import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
@@ -20,10 +20,32 @@ const loginBg={
 }
 
 const Register = () => {
+    const [regiserData,setRegisterData]=useState({});
 
-    const submitHandler=(e)=>{
+
+
+    const handleOnBlur=(e)=>{
+        const field=e.target.name;
+        const value=e.target.value;
+
+        const newRegisterData={...regiserData};
+        newRegisterData[field]=value;
+        setRegisterData(newRegisterData);
+
+
 
     }
+
+    const submitHandler=(e)=>{
+        console.log(regiserData);
+
+        e.preventDefault();
+
+    }
+
+
+
+    
     return (
         <Box style={loginBg} sx={{ flexGrow: 1,}}>
             <Container sx={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh'}} >
@@ -41,12 +63,14 @@ const Register = () => {
                 Register Your Account
                </Typography>
 
-               <form  style={{}} onSubmit={submitHandler}>
+               <form onSubmit={submitHandler}>
                
                <TextField
                fullWidth
                 required
-                sx={{display:'flex', flexDirection:'column' ,justifyContent:'center',alignItems:'center'}}
+                sx={{mb:2}}
+                onBlur={handleOnBlur}
+                name="name"
                 id="outlined-required"
                 label="Name"
                 type="text"
@@ -55,7 +79,9 @@ const Register = () => {
                <TextField
                fullWidth
                 required
-                sx={{display:'flex', flexDirection:'column' ,justifyContent:'center',alignItems:'center'}}
+                sx={{mb:2}}
+                onBlur={handleOnBlur}
+                name="email"
                 id="outlined-required"
                 label="Email Id"
                 type="email"
@@ -63,7 +89,9 @@ const Register = () => {
 
                 <TextField
                 fullWidth
-                
+                required
+                onBlur={handleOnBlur}
+                name="password"
                 id="outlined-password-input"
                 label="Password"
                 type="password"
@@ -75,9 +103,9 @@ const Register = () => {
 
                </form>
                 
-                <Link style={{textDecoration:'none'}} to="/register">
+                <Link style={{textDecoration:'none'}} to="/login">
                <Typography sx={{mt:3,fontWeight:'bold',fontSize:20}} variant="p" display="block" gutterBottom>
-                New member? <span style={{color:'darkcyan'}}>Sign Up</span> 
+                Have An Account? <span style={{color:'darkcyan'}}>Login</span> 
                 </Typography>
                 </Link>
 
