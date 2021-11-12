@@ -11,6 +11,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import Footer from './components/shared/footer/Footer';
 import Register from './pages/login/register/Register';
 import  AuthProvider  from '../src/contex/AuhProvider';
+import PrivateRoute from './pages/login/privateRoute/PrivateRoute';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
       <Route exact path="/"><Home /> </Route>
       
       <Route path="/home"> <Home /> </Route>
-      <Route path='/explore'> <Explore/> </Route>
+      <PrivateRoute path='/explore'> <Explore/> </PrivateRoute>
       <Route path="/about"> <About/> </Route>
       <Route path="/contract"> <Contract/></Route>
       <Route path="/login"> <Login /> </Route>
