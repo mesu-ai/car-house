@@ -11,6 +11,8 @@ import TableRow from '@mui/material/TableRow';
 import useCars from '../../../hooks/useCars';
 import { Alert, AlertTitle, Button } from '@mui/material';
 import axios from 'axios';
+import UpdateModal from './updateModal/UpdateModal';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,6 +21,10 @@ export default function ManageCar() {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const {cars,setCars}=useCars();
   const [success,setSuccess]=React.useState(false);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
 
   const handleDelete=(id)=>{
@@ -30,10 +36,14 @@ export default function ManageCar() {
             setSuccess(true);
             const remainingCar=cars.filter(car=>car._id !== id);
             setCars(remainingCar);
-    
-        })
 
+        })
       }      
+  }
+
+  const handleUpdate=(id)=>{
+      
+
 
   }
    
@@ -90,13 +100,14 @@ export default function ManageCar() {
               <TableCell align="right">{row.price}</TableCell>
               <TableCell align="right">{row._id}</TableCell>
 
-              <TableCell align="right"><Button variant="contained">Update</Button></TableCell>
+              
+              <TableCell align="right"><Button onClick={handleOpen} variant="contained">Update</Button></TableCell>
+              {/* </Link> */}
 
-              <TableCell  align="right"><Button onClick={()=>handleDelete(row._id)}  variant="contained" color="error" >Delete</Button></TableCell>
+              <TableCell  align="right"><Button onClick={()=>handleUpdate(row._id)} variant="contained" color="error" >Delete</Button></TableCell>
 
             </TableRow>
                   
-
 
                 );
               })}
@@ -113,6 +124,8 @@ export default function ManageCar() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
+
+    <UpdateModal open={open} handleOpen={handleOpen} handleClose={handleClose}></UpdateModal>
     
     </>
   );

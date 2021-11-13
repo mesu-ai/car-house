@@ -17,8 +17,8 @@ const AddCar = () => {
         newCarData[field]=value;
         setCarData(newCarData);
 
-
     }
+    
     const handleOnSubmit=(e)=>{
         const url=('http://localhost:5000/cars')
         const car={...carData};
