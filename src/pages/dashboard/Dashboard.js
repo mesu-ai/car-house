@@ -25,6 +25,7 @@ import AddCar from './addCar/AddCar';
 import ManageCar from './manageCar/ManageCar';
 import ManageReview from './manageReview/ManageReview';
 import AddAdmin from './addAdmin/AddAdmin';
+import UpdateCar from './manageCar/updateCar/UpdateCar';
 
 const drawerWidth = 240;
 
@@ -106,6 +107,8 @@ function Dashboard(props) {
               </ListItemButton>
        </ListItem>
        </Link>
+
+       {/* <Link to={`${url}/updatecar`}>hh</Link> */}
 
        <Link className="dashboard-item" to={`${url}/managereview`} >
       <ListItem className="list-item" disablePadding>
@@ -235,6 +238,10 @@ function Dashboard(props) {
             <ManageCar></ManageCar>
         </Route>
 
+        <Route path={`${path}/updatecar/:id`}>
+            <UpdateCar></UpdateCar>
+        </Route>
+
         <Route path={`${path}/managereview`}>
             <ManageReview></ManageReview>
         </Route>
@@ -242,6 +249,8 @@ function Dashboard(props) {
         <Route path={`${path}/addadmin`}>
             <AddAdmin></AddAdmin>
         </Route>
+
+       
 
       </Switch>
 

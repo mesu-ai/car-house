@@ -19,7 +19,7 @@ const reviewbg={
 
 const CustomerReview = () => {
 
-    const {reviews} = useReview();
+    const {topReviews} = useReview();
     
     return (
         <Box style={reviewbg} sx={{mt:10, mb:4}}>
@@ -37,7 +37,7 @@ const CustomerReview = () => {
         <Box sx={{ flexGrow: 1,mt:5 }}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {
-            reviews.map(creview=><ReviewCard key={Math.random()} creview={creview}></ReviewCard>)
+            topReviews.map(creview=><ReviewCard key={Math.random()} creview={creview}></ReviewCard>)
 
             }
         </Grid>

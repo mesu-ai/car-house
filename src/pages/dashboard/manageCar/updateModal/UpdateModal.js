@@ -110,7 +110,7 @@ const style = {
           
         </Box>
       </Modal>
-    </div>
+       </div>
     );
 };
 
