@@ -12,6 +12,7 @@ import Footer from './components/shared/footer/Footer';
 import Register from './pages/login/register/Register';
 import  AuthProvider  from '../src/contex/AuhProvider';
 import PrivateRoute from './pages/login/privateRoute/PrivateRoute';
+import Order from './pages/order/Order';
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
       <PrivateRoute path='/explore'> <Explore/> </PrivateRoute>
       <Route path="/about"> <About/> </Route>
       <Route path="/contract"> <Contract/></Route>
+
+      <Route path="/order/:id"> <Order/></Route>
+
       <Route path="/login"> <Login /> </Route>
       <Route path="/register"> <Register /> </Route>
 

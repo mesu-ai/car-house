@@ -1,9 +1,10 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
 import './ServiceCard.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({latest}) => {
-    const {model,feature,price,rating,photo} =latest;
+    const {_id,model,feature,price,rating,photo} =latest;
 
 
 
@@ -22,7 +23,7 @@ const ServiceCard = ({latest}) => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={7}>
                     
-                    <Typography sx={{textTransform:'uppercase'}} gutterBottom variant="h5" component="div">
+                    <Typography sx={{textTransform:'capitalize',fontWeight:'bold'}} gutterBottom variant="h5" component="div">
                     {model}
                     </Typography>
                         
@@ -44,9 +45,11 @@ const ServiceCard = ({latest}) => {
                 </CardContent>
             </CardActionArea>
             <CardActions sx={{}}>
+                <Link to={`/order/${_id}`}>
                 <Button sx={{backgroundColor:'darkcyan',mx:'auto'}} size="small" variant="contained">
                 Buy Now
                 </Button>
+                </Link>
             </CardActions>
              </Card>
             
