@@ -30,13 +30,13 @@ const ServiceCard = ({latest}) => {
                     </Grid>
                     <Grid item xs={12} md={5}>
                     <Typography sx={{fontWeight:'bold',color:'info.main'}} gutterBottom variant="h5" component="div">
-                    {price}
+                    $ {price}
                     </Typography>
                     
                     </Grid>
                 </Grid>
 
-                <Rating name="read-only" value={rating} readOnly />
+                {/* <Rating name="read-only" value={rating} readOnly /> */}
 
                 <Typography sx={{textTransform:'capitalize',textAlign:'start'}} variant="subtitle1" gutterBottom component="div">
 
@@ -45,11 +45,13 @@ const ServiceCard = ({latest}) => {
                 </CardContent>
             </CardActionArea>
             <CardActions sx={{}}>
-                <Link to={`/order/${_id}`}>
+
+                <Link style={{textDecoration:'none'}} to={`/orderdetails/${_id}`}>
                 <Button sx={{backgroundColor:'darkcyan',mx:'auto'}} size="small" variant="contained">
                 Buy Now
                 </Button>
                 </Link>
+
             </CardActions>
              </Card>
             

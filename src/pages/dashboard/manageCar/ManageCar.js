@@ -103,7 +103,7 @@ export default function ManageCar() {
               <TableCell sx={{textTransform:'uppercase'}} align="right">{row.brand}</TableCell>
 
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row._id}</TableCell>
+              
 
               
               <TableCell align="right"><Button variant="contained">Update</Button></TableCell>

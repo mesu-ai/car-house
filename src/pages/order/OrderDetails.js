@@ -1,11 +1,14 @@
-import { Container, Paper, Rating, Typography } from '@mui/material';
+import { Button, Container, Paper, Rating, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 
-const Order = () => {
+const OrderDetails = () => {
   const [selectedCar,setSelectedCar]=useState([]);
+  
+  
+  
   const {id}=  useParams();
   const url=`http://localhost:5000/cars/${id}`;
 
@@ -15,7 +18,12 @@ const Order = () => {
       .then(data=>setSelectedCar(data));
   },[url]);
 
+  const history= useHistory();
+  const orderPlace=(id)=>{
+      const url=`/orderplace/${id}`;
+      history.push(url);
 
+  }
 
 
 
@@ -23,7 +31,7 @@ const Order = () => {
         <Box sx={{ flexGrow: 1 }}>
         
         <Container>
-         <Typography sx={{fontWeight:'bold',mt:4}} variant="h4" gutterBottom component="div">
+         <Typography sx={{fontWeight:'bold',mt:4,color:'black'}} variant="h4" gutterBottom component="div">
           {selectedCar.model} Car Details
          </Typography>
         <Grid container spacing={4} sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
@@ -32,15 +40,18 @@ const Order = () => {
 
                 <Box>
                 <Grid container spacing={2}>
-                    <Grid item xs={6} md={8}>
+                    <Grid item xs={12} md={8}>
                     
                     <Typography sx={{fontWeight:'bold',mt:4}} variant="h5" gutterBottom component="div">
-                    Price: {selectedCar.price}
+                     Price: <span style={{color:'crimson'}}> $ {selectedCar.price}</span> 
                     </Typography>
                         
                     </Grid>
                     <Grid item xs={6} md={4} sx={{mt:4}}>
-                    <Rating name="read-only" value={selectedCar.rating} readOnly />
+
+                    {/* <Rating name="read-only" value={selectedCar.rating} readOnly /> */}
+
+                    
 
                     </Grid>
                     
@@ -48,8 +59,8 @@ const Order = () => {
                 </Box>
 
             
-            <Typography sx={{fontWeight:'bold',mt:4,color:'info.main'}} variant="h5" gutterBottom component="div">
-            Brand: {selectedCar.brand}
+            <Typography sx={{fontWeight:'bold',mt:4}} variant="h5" gutterBottom component="div">
+            Brand: <span style={{color:'navy',textTransform:'capitalize'}}>{selectedCar.brand}</span> 
             </Typography>
             <Typography sx={{fontWeight:'bold',mt:2,textTransform:'capitalize'}} variant="h6" gutterBottom component="div">
             Speciality: {selectedCar.feature}
@@ -57,13 +68,17 @@ const Order = () => {
             <Typography sx={{textAlign:'justify'}} variant="body1" gutterBottom>
             Brand: {selectedCar.details}
             </Typography>
+
+            <Button onClick={()=>orderPlace(id)} fullWidth sx={{mt:3}} variant="contained" color="success">Order Place</Button>
             
             
             </Grid>
             
-            <Grid item xs={6} md={5}>
-            <Paper sx={{p:3,mx:'auto'}} elevation={3} >
+            <Grid item xs={12} md={5}>
+            <Paper sx={{p:3,mx:'auto',mt:3}} elevation={3} >
                 <img src={selectedCar?.photo} alt="" width='100%'/>
+
+                <Typography  sx={{mt:3,backgroundColor:'crimson',p:1,color:'white'}}> {selectedCar.brand} Latest Edition</Typography>
             </Paper>
             </Grid>
             
@@ -73,4 +88,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default OrderDetails;
