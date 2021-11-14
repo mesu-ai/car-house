@@ -4,7 +4,7 @@ import { AuthContex } from '../contex/AuhProvider';
 const useAuth = () => {
     
     return useContext(AuthContex);
-    
+  
 };
 
 

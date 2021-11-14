@@ -27,12 +27,13 @@ import ManageReview from './manageReview/ManageReview';
 import AddAdmin from './addAdmin/AddAdmin';
 import UpdateCar from './manageCar/updateCar/UpdateCar';
 import ManageOrder from './manageOrder/ManageOrder';
+import AdminRoute from '../login/adminRoute/AdminRoute';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
 
-    const {userLogOut}=useAuth();
+    const {userLogOut,isAdmin,user}=useAuth();
     let { path, url } = useRouteMatch();
 
 
@@ -87,6 +88,11 @@ function Dashboard(props) {
        </ListItem>
        </Link>
 
+{user.email && isAdmin &&
+
+
+
+       <>
        <Link className="dashboard-item" to={`${url}/addcar`} >
        <ListItem className="list-item" disablePadding>
               <ListItemButton >
@@ -143,6 +149,9 @@ function Dashboard(props) {
               </ListItemButton>
        </ListItem>
        </Link>
+       </>
+
+}
 
 
       </List>
@@ -242,29 +251,29 @@ function Dashboard(props) {
            <MyReview></MyReview>
         </Route>
 
-        <Route path={`${path}/addcar`}>
+        <AdminRoute path={`${path}/addcar`}>
             <AddCar></AddCar>
-        </Route>
+        </AdminRoute>
 
-        <Route path={`${path}/manageorder`}>
+        <AdminRoute path={`${path}/manageorder`}>
             <ManageOrder></ManageOrder>
-        </Route>
+        </AdminRoute>
 
-        <Route path={`${path}/managecar`}>
+        <AdminRoute path={`${path}/managecar`}>
             <ManageCar></ManageCar>
-        </Route>
+        </AdminRoute>
 
-        <Route path={`${path}/updatecar/:id`}>
+        <AdminRoute path={`${path}/updatecar/:id`}>
             <UpdateCar></UpdateCar>
-        </Route>
+        </AdminRoute>
 
-        <Route path={`${path}/managereview`}>
+        <AdminRoute path={`${path}/managereview`}>
             <ManageReview></ManageReview>
-        </Route>
+        </AdminRoute>
 
-        <Route path={`${path}/addadmin`}>
+        <AdminRoute path={`${path}/addadmin`}>
             <AddAdmin></AddAdmin>
-        </Route>
+        </AdminRoute>
 
        
 

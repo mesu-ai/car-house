@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider,signOut,onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
 import firebseInitialize from '../pages/login/firebase/firebase.init';
 
+
 firebseInitialize();
 
 const useFirebase = () => {
@@ -9,7 +10,10 @@ const useFirebase = () => {
     const [user,setUser]=useState({});
     const [error,setError]=useState('');
     const [isLoading,setLoading]=useState(true);
+    const [isAdmin,setAdmin]=useState(false);
+    
 
+    // console.log(isAdmin);
 
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
@@ -65,8 +69,6 @@ const useFirebase = () => {
 
 
               history.push(redirect_uri);
-
-
 
             
         })
@@ -142,9 +144,15 @@ const useFirebase = () => {
 
     }
 
+    useEffect(()=>{
+        fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res=>res.json())
+        .then(data=>setAdmin(data.admin));
+    },[user.email])
 
 
-    return {user,error,isLoading,signInUsingGoogle,signUpUsingEmailPassword,signInUsingEmailPassword,userLogOut};
+
+    return {user,isAdmin,error,isLoading,signInUsingGoogle,signUpUsingEmailPassword,signInUsingEmailPassword,userLogOut};
 };
 
 export default useFirebase;

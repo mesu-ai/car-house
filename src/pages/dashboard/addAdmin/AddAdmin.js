@@ -3,11 +3,11 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import * as React from 'react';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import axios from 'axios';
+// import axios from 'axios';
 
 const AddAdmin = () => {
     const [email,setEmail]=React.useState([]);
-    const [error,setError]=React.useState('');
+    // const [error,setError]=React.useState('');
     const [isLoading,setLoading]=React.useState(false);
     const [success,setSuccess]=React.useState(false);
 
@@ -72,10 +72,10 @@ const AddAdmin = () => {
                 <TextField required fullWidth id="input-with-sx" label="Admin Email" type="email" onBlur={handleOnBlur} variant="standard" />
                 </Box>
 
-                {error &&
-                <Typography sx={{color:'crimson',mt:2,fontSize:20,fontWeight:'bold'}} variant="p" gutterBottom component="div"> {error} </Typography>
+                {/* {error &&
+                <Typography sx={{color:'crimson',mt:2,fontSize:20,fontWeight:'bold'}} variant="p" gutterBottom component="div"> {error} </Typography> 
                 
-                }
+                }*/}
                 
                 <Button type="submit" variant="contained">Add Admin</Button>
                 </form>
