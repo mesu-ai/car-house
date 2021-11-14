@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import IconButton from '@mui/material/IconButton';
 import {Switch,Route,Link,useRouteMatch} from "react-router-dom";
 import { Logout,Home, LocalTaxi,Reviews,AdminPanelSettings,BookOnline,RateReview,CarRental,DashboardCustomize} from '@mui/icons-material';
@@ -26,6 +26,7 @@ import ManageCar from './manageCar/ManageCar';
 import ManageReview from './manageReview/ManageReview';
 import AddAdmin from './addAdmin/AddAdmin';
 import UpdateCar from './manageCar/updateCar/UpdateCar';
+import ManageOrder from './manageOrder/ManageOrder';
 
 const drawerWidth = 240;
 
@@ -96,6 +97,17 @@ function Dashboard(props) {
               </ListItemButton>
        </ListItem>
        </Link>
+       
+       <Link className="dashboard-item" to={`${url}/manageorder`} >
+      <ListItem className="list-item" disablePadding>
+              <ListItemButton >
+                  <ListItemIcon  >
+                  <AddShoppingCartIcon />
+                  </ListItemIcon>
+                  <ListItemText sx={{fontWeight:'bold'}}  primary="Manage Order"/>
+              </ListItemButton>
+       </ListItem>
+       </Link>
 
        <Link className="dashboard-item" to={`${url}/managecar`} >
       <ListItem className="list-item" disablePadding>
@@ -108,7 +120,7 @@ function Dashboard(props) {
        </ListItem>
        </Link>
 
-       {/* <Link to={`${url}/updatecar`}>hh</Link> */}
+       
 
        <Link className="dashboard-item" to={`${url}/managereview`} >
       <ListItem className="list-item" disablePadding>
@@ -232,6 +244,10 @@ function Dashboard(props) {
 
         <Route path={`${path}/addcar`}>
             <AddCar></AddCar>
+        </Route>
+
+        <Route path={`${path}/manageorder`}>
+            <ManageOrder></ManageOrder>
         </Route>
 
         <Route path={`${path}/managecar`}>

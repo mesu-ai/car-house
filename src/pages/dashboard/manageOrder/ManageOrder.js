@@ -8,17 +8,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import useCars from '../../../hooks/useCars';
 import { Alert, AlertTitle, Button } from '@mui/material';
 import axios from 'axios';
-import useMyself from '../../../hooks/useMyself';
+import useOrder from '../../../hooks/useOrder';
 
 
-export default function MyOrder() {
+export default function ManageOrder() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
- // const {cars,setCars}=useCars();
-  const {myself,setMyself}= useMyself();
+//   const {myself,setMyself}= useMyself();
+  const {orders,setOrders}= useOrder();
+
+
   const [success,setSuccess]=React.useState(false);
 
 
@@ -29,8 +30,8 @@ export default function MyOrder() {
         axios.delete(url)
         .then(result=>{
             setSuccess(true);
-            const remainingOrder=myself.filter(my=>my._id !== id);
-            setMyself(remainingOrder);
+            const remainingOrder=orders.filter(order=>order._id !== id);
+            setOrders(remainingOrder);
 
         })
       }      
@@ -73,7 +74,7 @@ export default function MyOrder() {
           </TableRow>
         </TableHead>
           <TableBody>
-            {myself
+            {orders
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
@@ -108,7 +109,7 @@ export default function MyOrder() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={myself.length}
+        count={orders.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

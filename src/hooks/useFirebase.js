@@ -23,9 +23,12 @@ const useFirebase = () => {
             
             const user = result.user;
             setUser(user);
-            saveUser(user.displayName,user.email);
-
             history.push(redirect_uri);
+            
+            saveUser(user.email, user.displayName, "PUT");
+            setError('');
+
+            
         
             
         }).catch((error) => {
@@ -49,14 +52,12 @@ const useFirebase = () => {
             const newUser={email:email,displayName:name};
             setUser(newUser);
 
-            saveUser(name,email);
-
+            saveUser(email,name,"POST");
             // update user name
             updateProfile(auth.currentUser, {
                 displayName: name
               }).then(() => {
 
-                
               }).catch((error) => {
                   setError(error.message);
                 
@@ -126,8 +127,18 @@ const useFirebase = () => {
 
     }
 
-    const saveUser=(name,email)=>{
-        console.log(name,email);
+    const saveUser=(email,displayName,methodname)=>{
+        const user={email,displayName};
+        fetch('http://localhost:5000/users',{
+            method:methodname,
+            headers:{
+                'content-type':'application/json',
+            },
+            body:JSON.stringify(user)
+        })
+        .then(result=>{
+            console.log(result);
+        })
 
     }
 
