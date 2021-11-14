@@ -3,7 +3,7 @@ import './ServiceCard.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ServiceCard = ({latest}) => {
+const ServiceCard = ({latest,url}) => {
     const {_id,model,feature,price,rating,photo} =latest;
 
 
@@ -46,7 +46,7 @@ const ServiceCard = ({latest}) => {
             </CardActionArea>
             <CardActions sx={{}}>
 
-                <Link style={{textDecoration:'none'}} to={`/orderdetails/${_id}`}>
+                <Link style={{textDecoration:'none'}} to={`${url}/${_id}`}>
                 <Button sx={{backgroundColor:'darkcyan',mx:'auto'}} size="small" variant="contained">
                 Buy Now
                 </Button>

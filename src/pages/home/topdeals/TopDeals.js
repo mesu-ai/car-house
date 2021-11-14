@@ -8,6 +8,8 @@ const TopDeals = () => {
    const {latestCars} = useCars();
 //    console.log(cars,latestCars);
 
+const url='/orderplace';
+
 
     return (
         <Box sx={{mt:10, mb:4}}>
@@ -24,7 +26,7 @@ const TopDeals = () => {
         <Box sx={{ flexGrow: 1,mt:5 }}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {
-            latestCars.map(latest=><ServiceCard key={Math.random()} latest={latest}></ServiceCard>)
+            latestCars.map(latest=><ServiceCard key={Math.random()} latest={latest} url={url}></ServiceCard>)
 
             }
         </Grid>

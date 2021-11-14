@@ -23,6 +23,19 @@ export default function ManageOrder() {
   const [success,setSuccess]=React.useState(false);
 
 
+  const handleStatus=(_id)=>{
+    const orderId={_id:_id};
+    // const status={orderStatus:'Approved'};
+    const url=`http://localhost:5000/orders/orderStatus`;
+    axios.put(url,orderId)
+    .then(result=>{
+      console.log(result);
+    })
+
+
+  }
+
+
   const handleDelete=(id)=>{
     const url=`http://localhost:5000/orders/${id}`;
       const proceed=window.confirm('Are You Sure Cancle The Order?')
@@ -63,9 +76,9 @@ export default function ManageOrder() {
         <Table stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{fontWeight:'bold'}}>Car Model</TableCell>
-            <TableCell sx={{fontWeight:'bold'}} align="right">Brand</TableCell>
-            <TableCell sx={{fontWeight:'bold'}} align="right">Payable</TableCell>
+            <TableCell sx={{fontWeight:'bold'}}>Order Id</TableCell>
+            <TableCell sx={{fontWeight:'bold'}} align="right">Customer Name</TableCell>
+            <TableCell sx={{fontWeight:'bold'}} align="right">Product</TableCell>
 
             <TableCell sx={{fontWeight:'bold'}} align="right">Status</TableCell>
             {/* <TableCell sx={{fontWeight:'bold'}} align="right">Update</TableCell> */}
@@ -82,18 +95,22 @@ export default function ManageOrder() {
                     key={Math.random()}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-              <TableCell sx={{textTransform:'capitalize',}} component="th" scope="row">
-                {row.model}
+              <TableCell sx={{fontWeight:'bold',color:'info.main'}} component="th" scope="row">
+                {row._id}
               </TableCell>
 
-              <TableCell sx={{textTransform:'uppercase'}} align="right">{row.brand}</TableCell>
+              <TableCell sx={{textTransform:'capitalize'}} align="right">
+                {row.customername}
+              </TableCell>
 
-              <TableCell align="right">{row.totalPrice}</TableCell>
+              <TableCell sx={{textTransform:'capitalize'}} align="right">
+                {row.model}
+              </TableCell>
 
               <TableCell sx={{fontWeight:'bold'}} align="right"><span style={{backgroundColor:'green',padding:'8px 8px',color:'white',borderRadius:'5px'}}>{row?.orderStatus}</span></TableCell>
               
               
-              {/* <TableCell align="right"><Button variant="contained">Update</Button></TableCell> */}
+              <TableCell align="right"><Button onClick={()=>handleStatus(row._id)} variant="contained">Approved</Button></TableCell>
               
 
               <TableCell  align="right"><Button onClick={()=>handleDelete(row._id)} variant="contained" color="error" >Cancle</Button></TableCell>

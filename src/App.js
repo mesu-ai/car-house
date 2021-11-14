@@ -32,7 +32,7 @@ function App() {
       <Route path="/contract"> <Contract/></Route>
 
       <Route path="/orderdetails/:id"> <OrderDetails/></Route>
-      <Route path="/orderplace/:id"> <OrderPlace/></Route>
+      <PrivateRoute path="/orderplace/:id"> <OrderPlace/></PrivateRoute>
       
 
       <Route path="/login"> <Login /> </Route>

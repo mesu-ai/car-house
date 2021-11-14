@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {InfoRounded,Home,LoginRounded,LogoutRounded,LocalTaxiRounded,DashboardRounded } from '@mui/icons-material';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { Button, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Button, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
@@ -131,7 +131,11 @@ export default function Navbar() {
 
       {user.email &&
           <MenuItem>
-           <p style={{color:'crimson'}}>{user.displayName}</p>
+          <IconButton size="large" >
+           <AccountCircleIcon color="success" />
+           </IconButton>
+           <p style={{color:'navy',fontWeight:'bold'}}>{user.displayName}</p>
+           
           </MenuItem>
       }
       
@@ -223,10 +227,10 @@ export default function Navbar() {
           
          {user.email &&
          
-         <Link style={{textDecoration:'none',color:'black'}} to='/dashboard'>
+         <Link style={{textDecoration:'none'}} to='/dashboard'>
          <ListItemButton sx={{display:'flex',alignItems:'center'}}>
-         <DashboardRounded/> 
-         <ListItemText sx={{ml:1,fontWeight:'bold'}} primary="Dashboard" />      
+         <DashboardRounded color="warning"/> 
+         <ListItemText sx={{ml:1,fontWeight:'bold',color:'wheat'}} primary="Dashboard" />      
         </ListItemButton>
          </Link>
          
@@ -246,8 +250,14 @@ export default function Navbar() {
 
             </IconButton> */}
 
+            
+
             {user.email &&
-            <span style={{display:'flex',alignItems:'center'}}>{user.displayName}</span>
+            <List sx={{display:'flex',alignItems:'center',mx:1}}>
+              <AccountCircleIcon  sx={{ color:'red',fontSize:25 }}/>
+              <ListItemText sx={{ml:1,fontWeight:'bold',textTransform:'capitalize',color:'wheat'}} primary={user.displayName} /> 
+               
+            </List>
             
             }
 
@@ -256,7 +266,7 @@ export default function Navbar() {
 
             <Link style={{textDecoration:'none',color:'white'}} to='/login'>
             <ListItem>
-              <Button variant="contained" sx={{backgroundColor:'crimson',ml:2}}>
+              <Button variant="contained" sx={{backgroundColor:'crimson',ml:1}}>
               Login
               </Button>
             </ListItem>
