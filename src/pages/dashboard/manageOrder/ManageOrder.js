@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Alert, AlertTitle, Button } from '@mui/material';
+import { Alert, AlertTitle, Button} from '@mui/material';
 import axios from 'axios';
 import useOrder from '../../../hooks/useOrder';
 
@@ -16,24 +16,29 @@ import useOrder from '../../../hooks/useOrder';
 export default function ManageOrder() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-//   const {myself,setMyself}= useMyself();
   const {orders,setOrders}= useOrder();
-
-
+  
   const [success,setSuccess]=React.useState(false);
 
 
+
+  
+
   const handleStatus=(_id)=>{
-    const orderId={_id:_id};
+   
+
+    const orderId={_id:_id,orderStatus:'Approved'};
     // const status={orderStatus:'Approved'};
     const url=`http://localhost:5000/orders/orderStatus`;
     axios.put(url,orderId)
     .then(result=>{
       console.log(result);
     })
-
+    
 
   }
+
+  
 
 
   const handleDelete=(id)=>{
@@ -80,8 +85,11 @@ export default function ManageOrder() {
             <TableCell sx={{fontWeight:'bold'}} align="right">Customer Name</TableCell>
             <TableCell sx={{fontWeight:'bold'}} align="right">Product</TableCell>
 
-            <TableCell sx={{fontWeight:'bold'}} align="right">Status</TableCell>
-            {/* <TableCell sx={{fontWeight:'bold'}} align="right">Update</TableCell> */}
+            <TableCell sx={{fontWeight:'bold'}} align="right">Current Status</TableCell>
+            
+
+            <TableCell sx={{fontWeight:'bold'}} align="right">Update Status</TableCell>
+
             <TableCell sx={{fontWeight:'bold'}} align="right">Action</TableCell>
 
           </TableRow>
@@ -90,6 +98,7 @@ export default function ManageOrder() {
             {orders
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
+                
                 return (
                     <TableRow hover role="checkbox" tabIndex={-1}
                     key={Math.random()}
@@ -107,10 +116,15 @@ export default function ManageOrder() {
                 {row.model}
               </TableCell>
 
-              <TableCell sx={{fontWeight:'bold'}} align="right"><span style={{backgroundColor:'green',padding:'8px 8px',color:'white',borderRadius:'5px'}}>{row?.orderStatus}</span></TableCell>
+              <TableCell sx={{fontWeight:'bold'}} align="right"><span style={{padding:'8px 8px',color:'green',borderRadius:'5px'}}>{row?.orderStatus}</span></TableCell>  
               
+              <TableCell align="right">
+                <Button onClick={()=>handleStatus(row._id)} variant="contained">Confirm</Button>
+
               
-              <TableCell align="right"><Button onClick={()=>handleStatus(row._id)} variant="contained">Approved</Button></TableCell>
+              </TableCell>
+
+              
               
 
               <TableCell  align="right"><Button onClick={()=>handleDelete(row._id)} variant="contained" color="error" >Cancle</Button></TableCell>
