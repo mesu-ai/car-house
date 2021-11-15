@@ -1,11 +1,11 @@
-import { Grid, Paper } from '@mui/material';
+import { Grid, Paper, Rating } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 
 import React from 'react';
 
 const ReviewCard = ({creview}) => {
-    const {name,address,picture,review}=creview;
+    const {name,address,picture,review,rating}=creview;
     return (
         <Grid item xs={12} sm={4} md={4}  sx={{mx:'auto'}}>
         <Paper elevation={3} sx={{p:2}}>
@@ -17,13 +17,13 @@ const ReviewCard = ({creview}) => {
 
            <Box sx={{display:'flex'}}>
 
-           <img src={picture} alt="" />
+           <img src={picture} alt="" width="100px" height="80px"  />
            <div style={{textAlign:'start',marginLeft:'15px'}}>
-
-           <Typography sx={{color:'info.main'}} variant="h5" gutterBottom component="div">
+           <Rating name="read-only" value={rating} readOnly />
+           <Typography sx={{color:'info.main',textTransform:'capitalize'}} variant="h5" component="div">
            {name}
           </Typography>
-           <Typography variant="h6" gutterBottom component="div">
+           <Typography variant="p" component="div">
            {address}
           </Typography>
 

@@ -22,8 +22,6 @@ export default function ManageOrder() {
 
 
 
-  
-
   const handleStatus=(_id)=>{
    
 
@@ -32,7 +30,7 @@ export default function ManageOrder() {
     const url=`http://localhost:5000/orders/orderStatus`;
     axios.put(url,orderId)
     .then(result=>{
-      console.log(result);
+      // console.log(result);
     })
     
 

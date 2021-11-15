@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import FeedbackIcon from '@mui/icons-material/Feedback';
 import IconButton from '@mui/material/IconButton';
 import {Switch,Route,Link,useRouteMatch} from "react-router-dom";
 import { Logout,Home, LocalTaxi,Reviews,AdminPanelSettings,BookOnline,RateReview,CarRental,DashboardCustomize} from '@mui/icons-material';
@@ -29,6 +30,7 @@ import UpdateCar from './manageCar/updateCar/UpdateCar';
 import ManageOrder from './manageOrder/ManageOrder';
 import AdminRoute from '../login/adminRoute/AdminRoute';
 import Navbar from '../../components/shared/Navbar';
+import AddReview from './myreview/AddReview';
 
 const drawerWidth = 240;
 
@@ -78,11 +80,21 @@ function Dashboard(props) {
               </ListItemButton>
        </ListItem>
        </Link>
-       <Link className="dashboard-item" to={`${url}/myreview`} > 
+       <Link className="dashboard-item" to={`${url}/addreview`} > 
        <ListItem className="list-item" disablePadding>
               <ListItemButton >
                   <ListItemIcon  >
                   <RateReview />
+                  </ListItemIcon>
+                  <ListItemText sx={{fontWeight:'bold'}}  primary="Add Review"/>
+              </ListItemButton>
+       </ListItem>
+       </Link>
+       <Link className="dashboard-item" to={`${url}/myreview`} > 
+       <ListItem className="list-item" disablePadding>
+              <ListItemButton >
+                  <ListItemIcon  >
+                  <FeedbackIcon />
                   </ListItemIcon>
                   <ListItemText sx={{fontWeight:'bold'}}  primary="My Review"/>
               </ListItemButton>
@@ -250,6 +262,9 @@ function Dashboard(props) {
           <MyOrder></MyOrder>
         </Route>
 
+        <Route path={`${path}/addreview`}>
+           <AddReview></AddReview>
+        </Route>
         <Route path={`${path}/myreview`}>
            <MyReview></MyReview>
         </Route>
