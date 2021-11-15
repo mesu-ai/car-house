@@ -13,6 +13,7 @@ import  AuthProvider  from '../src/contex/AuhProvider';
 import PrivateRoute from './pages/login/privateRoute/PrivateRoute';
 import OrderDetails from './pages/order/OrderDetails';
 import OrderPlace from './pages/order/OrderPlace';
+import Notfind from './pages/notfind/Notfind';
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
       
         
       <Route path="/faq"><FAQ /> </Route>
+
+      <Route path="*"><Notfind /> </Route>
         
       </Switch>
       <Footer></Footer>
