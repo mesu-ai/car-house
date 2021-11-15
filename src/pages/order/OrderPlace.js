@@ -7,6 +7,7 @@ import {Container, Grid,TextField} from '@mui/material';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
+import Navbar from '../../components/shared/Navbar';
 
 
   const OrderPlace = () => {
@@ -77,6 +78,7 @@ import axios from 'axios';
         
       
         <Box>
+         <Navbar></Navbar>
         <Container>
           <Typography sx={{my:5}} variant="h6" component="h2">
             Text in a modal {id}
@@ -152,7 +154,7 @@ import axios from 'axios';
         </Grid>
 
                      
-          </Container>
+        </Container>
 
           
         </Box>

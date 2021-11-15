@@ -9,10 +9,11 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {InfoRounded,Home,LoginRounded,LogoutRounded,LocalTaxiRounded,DashboardRounded } from '@mui/icons-material';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import { Button, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import brandlogo from '../../images/brandlogo.png';
+import '../shared/navigation/Navbar.css';
 
 
 export default function Navbar() {
@@ -183,7 +184,7 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -191,15 +192,18 @@ export default function Navbar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography
+          </IconButton> */}
+          <img src={brandlogo} alt="" height="60px"></img>
+          
+          <Typography className="brandfont"
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'block', sm: 'block' } }}
+            sx={{ display: { xs: 'block', sm: 'block', },color:'whete',fontWeight:'bold' }}
           >
-            Car House
+            Car <span style={{color:'white',fontSize:'25px'}}>House</span>
           </Typography>
+          
           
           <Box sx={{ flexGrow: 1 }} />
           
@@ -294,7 +298,7 @@ export default function Navbar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <MenuIcon />
             </IconButton>
           </Box>
         </Toolbar>

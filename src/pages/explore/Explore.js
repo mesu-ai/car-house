@@ -3,6 +3,8 @@ import { Box } from '@mui/system';
 import React from 'react';
 import useCars from '../../hooks/useCars';
 import ServiceCard from '../home/serviceCard/ServiceCard';
+import Activity from '../../components/shared/activity/Activity';
+import Navbar from '../../components/shared/Navbar';
 
 const Explore = () => {
    const {cars} = useCars();
@@ -10,8 +12,11 @@ const Explore = () => {
    const url='/orderdetails';
 
     return (
-        <Box sx={{mt:10, mb:4}}>
-        <Container>
+        <>
+        <Navbar></Navbar>
+        <Box sx={{ mb:4,}}>
+            <Activity/>
+        <Container sx={{mt:4}}>
         
         <Typography sx={{color:'info.main',fontWeight:'bold'}} variant="h5" gutterBottom component="div">
         Choice Your Car
@@ -32,6 +37,7 @@ const Explore = () => {
         </Box>
         </Container>
         </Box>
+        </>
     );
 };
 

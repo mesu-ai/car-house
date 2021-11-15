@@ -28,6 +28,7 @@ import AddAdmin from './addAdmin/AddAdmin';
 import UpdateCar from './manageCar/updateCar/UpdateCar';
 import ManageOrder from './manageOrder/ManageOrder';
 import AdminRoute from '../login/adminRoute/AdminRoute';
+import Navbar from '../../components/shared/Navbar';
 
 const drawerWidth = 240;
 
@@ -174,6 +175,8 @@ function Dashboard(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
+    <>
+    <Navbar></Navbar>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
@@ -283,6 +286,7 @@ function Dashboard(props) {
         
       </Box>
     </Box>
+    </>
   );
 }
 

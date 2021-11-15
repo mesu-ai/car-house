@@ -6,7 +6,6 @@ import Home from './pages/home/Home';
 import FAQ from './pages/faq/FAQ';
 import Login from './pages/login/Login';
 import Explore from './pages/explore/Explore.js';
-import Navbar from './components/shared/Navbar';
 import Dashboard from './pages/dashboard/Dashboard';
 import Footer from './components/shared/footer/Footer';
 import Register from './pages/login/register/Register';
@@ -21,7 +20,7 @@ function App() {
     <div className="App">
     <AuthProvider>
     <BrowserRouter>
-    <Navbar></Navbar>
+    
     <Switch>
     
       <Route exact path="/"><Home /> </Route>

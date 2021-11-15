@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
+import Navbar from '../../components/shared/Navbar';
 
 const OrderDetails = () => {
   const [selectedCar,setSelectedCar]=useState([]);
@@ -28,6 +29,8 @@ const OrderDetails = () => {
 
 
     return (
+         <>
+         <Navbar></Navbar>
         <Box sx={{ flexGrow: 1 }}>
         
         <Container>
@@ -85,6 +88,7 @@ const OrderDetails = () => {
         </Grid>
         </Container>
         </Box>
+        </>
     );
 };
 
