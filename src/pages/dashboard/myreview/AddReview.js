@@ -85,7 +85,7 @@ return (
         </Typography>
         
         {success &&
-        <Paper elevation={2} sx={{mt:-5,mb:2,width: '80%',mx:'auto',textAlign:'start'}}>
+        <Paper elevation={2} sx={{mb:3,width: '80%',mx:'auto',textAlign:'start'}}>
         <Alert severity="success">
         <AlertTitle>Success</AlertTitle>
          Customer Feedback Placed — <strong>Successfully!</strong>
