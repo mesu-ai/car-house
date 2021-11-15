@@ -17,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
 import { ListItemButton } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
@@ -31,6 +32,7 @@ import ManageOrder from './manageOrder/ManageOrder';
 import AdminRoute from '../login/adminRoute/AdminRoute';
 import Navbar from '../../components/shared/Navbar';
 import AddReview from './myreview/AddReview';
+import Payment from './payment/Payment';
 
 const drawerWidth = 240;
 
@@ -164,7 +166,18 @@ function Dashboard(props) {
        </Link>
        </>
 
-}
+  }
+
+    <Link className="dashboard-item" to={`${url}/payment`} >
+      <ListItem className="list-item" disablePadding>
+              <ListItemButton >
+                  <ListItemIcon  >
+                  <PaymentIcon color="success" />
+                  </ListItemIcon>
+                  <ListItemText sx={{fontWeight:'bold'}}  primary="Payment"/>
+              </ListItemButton>
+       </ListItem>
+       </Link>
 
 
       </List>
@@ -292,6 +305,10 @@ function Dashboard(props) {
         <AdminRoute path={`${path}/addadmin`}>
             <AddAdmin></AddAdmin>
         </AdminRoute>
+
+        <Route path={`${path}/payment`}>
+            <Payment></Payment>
+        </Route>
 
        
 
