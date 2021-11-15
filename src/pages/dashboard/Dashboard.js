@@ -33,6 +33,8 @@ import AdminRoute from '../login/adminRoute/AdminRoute';
 import Navbar from '../../components/shared/Navbar';
 import AddReview from './myreview/AddReview';
 import Payment from './payment/Payment';
+import Activity from '../../components/shared/activity/Activity';
+import DashboardHome from './dashboardHome/DashboardHome';
 
 const drawerWidth = 240;
 
@@ -268,7 +270,7 @@ function Dashboard(props) {
 
         <Switch>
         <Route exact path={path}>
-          <h3>Please select a topic.</h3>
+          <DashboardHome></DashboardHome>
         </Route>
 
         <Route path={`${path}/myorder`}>

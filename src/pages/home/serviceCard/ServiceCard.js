@@ -36,7 +36,7 @@ const ServiceCard = ({latest,url}) => {
                     </Grid>
                 </Grid>
 
-                {/* <Rating name="read-only" value={rating} readOnly /> */}
+                <Rating name="read-only" value={rating} readOnly />
 
                 <Typography sx={{textTransform:'capitalize',textAlign:'start'}} variant="subtitle1" gutterBottom component="div">
 
