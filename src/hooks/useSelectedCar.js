@@ -5,7 +5,7 @@ const useSelectedCar = (id) => {
     
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/cars/${id}`)
+        fetch(`https://boiling-falls-94406.herokuapp.com/cars/${id}`)
         .then(res=>res.json())
         .then(data=>{
             

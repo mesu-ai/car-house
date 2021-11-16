@@ -5,7 +5,7 @@ const useCars = () => {
     const [latestCars,setLatestCars]=useState([]);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/cars')
+        fetch('https://boiling-falls-94406.herokuapp.com/cars')
         .then(res=>res.json())
         .then(data=>{
             

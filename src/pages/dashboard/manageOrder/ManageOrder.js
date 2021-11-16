@@ -27,7 +27,7 @@ export default function ManageOrder() {
 
     const orderId={_id:_id,orderStatus:'Approved'};
     // const status={orderStatus:'Approved'};
-    const url=`http://localhost:5000/orders/orderStatus`;
+    const url=`https://boiling-falls-94406.herokuapp.com/orders/orderStatus`;
     axios.put(url,orderId)
     .then(result=>{
       // console.log(result);
@@ -40,7 +40,7 @@ export default function ManageOrder() {
 
 
   const handleDelete=(id)=>{
-    const url=`http://localhost:5000/orders/${id}`;
+    const url=`https://boiling-falls-94406.herokuapp.com/orders/${id}`;
       const proceed=window.confirm('Are You Sure Cancle The Order?')
       if(proceed){
         axios.delete(url)

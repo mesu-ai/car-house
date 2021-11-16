@@ -50,7 +50,7 @@ const handleOnSubmit=(e)=>{
     const reviewData={...review,rating:value,date:Date().toLocaleString()}
     
         
-    const url='http://localhost:5000/reviews';
+    const url='https://boiling-falls-94406.herokuapp.com/reviews';
     axios.post(url,reviewData)
     .then(result=>{
         if(result.data.insertedId){

@@ -26,7 +26,7 @@ export default function ManageReview() {
 
   const handleDelete=(id)=>{
     console.log(id);
-    const url=`http://localhost:5000/reviews/${id}`;
+    const url=`https://boiling-falls-94406.herokuapp.com/reviews/${id}`;
       const proceed=window.confirm('Are You Sure Dalete the Review?')
       if(proceed){
         axios.delete(url)

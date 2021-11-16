@@ -31,7 +31,7 @@ export default function ManageCar() {
 
 
   const handleDelete=(id)=>{
-    const url=`http://localhost:5000/cars/${id}`;
+    const url=`https://boiling-falls-94406.herokuapp.com/cars/${id}`;
       const proceed=window.confirm('Are You Sure Remove The Car?')
       if(proceed){
         axios.delete(url)

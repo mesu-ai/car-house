@@ -4,7 +4,7 @@ const useReview = () => {
     const [reviews,setReviews]= useState([]);
     const [topReviews,setTopReviews]= useState([]);
     useEffect(()=>{
-    fetch('http://localhost:5000/reviews')
+    fetch('https://boiling-falls-94406.herokuapp.com/reviews')
     .then(res=>res.json())
     .then(data=>{
         

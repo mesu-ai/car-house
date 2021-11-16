@@ -11,7 +11,7 @@ const OrderDetails = () => {
   
   
   const {id}=  useParams();
-  const url=`http://localhost:5000/cars/${id}`;
+  const url=`https://boiling-falls-94406.herokuapp.com/cars/${id}`;
 
   useEffect(()=>{
       fetch(url)

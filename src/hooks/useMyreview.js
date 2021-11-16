@@ -5,7 +5,7 @@ const useMyreview = () => {
     const {user}= useAuth();
 
     const [reviewMyself,setReviewMyself]=useState([]);
-    const url=`http://localhost:5000/reviews?email=${user.email}`;
+    const url=`https://boiling-falls-94406.herokuapp.com/reviews?email=${user.email}`;
     
     useEffect(()=>{
         fetch(url)

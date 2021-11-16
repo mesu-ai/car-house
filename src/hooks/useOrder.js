@@ -6,7 +6,7 @@ const useMyself = () => {
     
    
     useEffect(()=>{
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://boiling-falls-94406.herokuapp.com/orders`)
         .then(res=>res.json())
         .then(data=>{
             

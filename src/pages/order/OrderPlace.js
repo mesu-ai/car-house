@@ -19,7 +19,7 @@ import Navbar from '../../components/shared/Navbar';
        const [carData,setCarData]=React.useState(initialInfo);
 
 
-    const loadUrl=`http://localhost:5000/cars/${id}`;
+    const loadUrl=`https://boiling-falls-94406.herokuapp.com/cars/${id}`;
 
   React.useEffect(()=>{
       fetch(loadUrl)
@@ -43,7 +43,7 @@ import Navbar from '../../components/shared/Navbar';
 
     }
     const history=useHistory();
-    const postUrl='http://localhost:5000/orders';
+    const postUrl='https://boiling-falls-94406.herokuapp.com/orders';
     const handleOnSubmit=(e)=>{
         const orderdata={
             ...carData,model:car.model, brand: car.brand,totalPrice:total, orderStatus: 'Pending'

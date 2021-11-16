@@ -26,7 +26,7 @@ const AddAdmin = () => {
         setLoading(true);
         const user={email:email}
         
-        fetch('http://localhost:5000/users/admin',{
+        fetch('https://boiling-falls-94406.herokuapp.com/users/admin',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

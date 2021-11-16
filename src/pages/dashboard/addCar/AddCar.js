@@ -23,7 +23,7 @@ const AddCar = () => {
     
     const history= useHistory();
     const handleOnSubmit=(e)=>{
-        const url=('http://localhost:5000/cars')
+        const url=('https://boiling-falls-94406.herokuapp.com/cars')
         const car={...carData};
         axios.post(url,car)
         .then(result=>{

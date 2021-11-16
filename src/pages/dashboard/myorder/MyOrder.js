@@ -21,7 +21,7 @@ export default function MyOrder() {
 
 
   const handleDelete=(id)=>{
-    const url=`http://localhost:5000/orders/${id}`;
+    const url=`https://boiling-falls-94406.herokuapp.com/orders/${id}`;
       const proceed=window.confirm('Are You Sure Cancle The Order?')
       if(proceed){
         axios.delete(url)
