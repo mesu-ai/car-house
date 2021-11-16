@@ -4,10 +4,12 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../Dashboard.css';
+import { useHistory } from 'react-router';
 
 
 const AddCar = () => {
     const [carData,setCarData]=useState({});
+   const inputCarField= document.getElementById('addcar');
 
     const handleOnBlur=(e)=>{
         const field=e.target.name;
@@ -19,6 +21,7 @@ const AddCar = () => {
 
     }
     
+    const history= useHistory();
     const handleOnSubmit=(e)=>{
         const url=('http://localhost:5000/cars')
         const car={...carData};
@@ -26,7 +29,10 @@ const AddCar = () => {
         .then(result=>{
             if(result.data.insertedId){
                 alert('New Car Added To List');
-                setCarData('');
+                inputCarField.value='';
+                history.push('/dashboard/addcar');
+
+                // setCarData('');
             }
         })
     
@@ -57,44 +63,44 @@ const AddCar = () => {
 
                 <Grid item xs={12} md={6}>
 
-                 <TextField fullWidth name="model" onBlur={handleOnBlur} label="Car Model" sx={{mb:2}} id="fullWidth" />
+                 <TextField required fullWidth name="model" onBlur={handleOnBlur} label="Car Model" sx={{mb:2}} id="addcar" />
                         
                 </Grid>
                 <Grid item xs={12} md={6}>
 
-                 <TextField fullWidth name="brand" onBlur={handleOnBlur} label="Car Brand" sx={{mb:2}} id="fullWidth" />
+                 <TextField required fullWidth name="brand" onBlur={handleOnBlur} label="Car Brand" sx={{mb:2}} id="addcar" />
 
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <TextField fullWidth name="price" onBlur={handleOnBlur} label="Car Price" sx={{mb:2}} id="fullWidth" />
+                  <TextField required fullWidth name="price" onBlur={handleOnBlur} label="Car Price" sx={{mb:2}} id="addcar" />
                         
                 </Grid>
                 <Grid item xs={12} md={6}>
-                 <TextField fullWidth name="rating" onBlur={handleOnBlur} label="Current Rating" sx={{mb:2}} id="fullWidth" />
+                 <TextField required fullWidth name="rating" onBlur={handleOnBlur} label="Current Rating" sx={{mb:2}} id="addcar" />
                        
                 </Grid>
                 </Grid>
 
-                <TextField
+                <TextField required
                     sx={{mb:2}}
                     fullWidth
                     name="feature" onBlur={handleOnBlur}
-                    id="outlined-multiline-static"
+                    id="addcar"
                     label="Key Feature"
                     multiline
                     rows={2}
                      />
-                <TextField
+                <TextField required
                     sx={{mb:2}}
                     fullWidth
                     name="details" onBlur={handleOnBlur}
-                    id="outlined-multiline-static"
+                    id="addcar"
                     label="Details"
                     multiline
                     rows={4}
                      />
 
-                <TextField name="photo" onBlur={handleOnBlur} fullWidth label="Photo URL" sx={{mb:3}} id="fullWidth" />
+                <TextField required  name="photo" onBlur={handleOnBlur} fullWidth label="Photo URL" sx={{mb:3}} id="addcar" />
 
 
                 <Button type="submit" variant="contained">Add A New Car</Button>

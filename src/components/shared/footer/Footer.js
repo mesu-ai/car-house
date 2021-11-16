@@ -10,7 +10,7 @@ import BuyCar from './buyCar/BuyCar';
 const Footer = () => {
 
     return (
-        <Box sx={{p:5,backgroundColor:'cornsilk'}}>
+        <Box sx={{mt:3, p:5,backgroundColor:'cornsilk'}}>
             <Container>
              
             <Box sx={{ flexGrow: 1 }}>

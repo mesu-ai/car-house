@@ -11,9 +11,9 @@ const BuyCar = () => {
         </Typography>
         <Box className="quick-link" sx={{display:'flex',flexDirection:'column',alignItems:'start'}}>
             
-            <Link to="">New Car</Link>
-            <Link to="">Recondition Car</Link>
-            <Link to="">Used Car</Link>
+            <Link to="/explore">New Car</Link>
+            <Link to="/explore">Recondition Car</Link>
+            <Link to="/explore">Used Car</Link>
             
         </Box>
         </>

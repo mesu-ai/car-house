@@ -55,7 +55,7 @@ import Navbar from '../../components/shared/Navbar';
         .then(result=>{
             if(result.data.insertedId){
                 alert('Order Placed Successfully');
-                history.push('/home');
+                history.push('/explore');
                 console.log(orderdata);
 
             }
@@ -80,7 +80,7 @@ import Navbar from '../../components/shared/Navbar';
         <Box>
          <Navbar></Navbar>
         <Container>
-          <Typography sx={{my:5}} variant="h6" component="h2">
+          <Typography sx={{my:5,backgroundColor:'cornsilk',p:2,fontWeight:'bold'}} variant="h6" component="h2">
             Order Id: {id}
           </Typography>
           

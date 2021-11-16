@@ -1,6 +1,7 @@
 import { Button, Container, Grid, Paper, Typography } from '@mui/material';
 import { Box} from '@mui/system';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import car1 from '../../../images/infocard1.png';
 import car2 from '../../../images/infocard2.png';
 import car3 from '../../../images/infocard3.png';
@@ -17,7 +18,9 @@ const BannerInfoCard = () => {
                     New Car
                     
                      </Typography>
+                     <Link style={{textDecoration:'none'}} to="/explore">
                     <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
+                    </Link>
                     
                 
                    
@@ -31,7 +34,10 @@ const BannerInfoCard = () => {
                     <Typography className="cardfont" sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
                     Recondition Car
                     </Typography>
+
+                    <Link style={{textDecoration:'none'}} to="/explore">
                     <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
+                    </Link>
                     
                     
                 </Paper>
@@ -43,7 +49,10 @@ const BannerInfoCard = () => {
                    <Typography className="cardfont" sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
                     Used Car
                     </Typography>
+                    
+                    <Link style={{textDecoration:'none'}} to="/explore">
                     <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
+                    </Link>
                 
                 </Paper>
             
