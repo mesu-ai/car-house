@@ -25,7 +25,7 @@ export default function ManageOrder() {
   const handleStatus=(_id)=>{
    
 
-    const orderId={_id:_id,orderStatus:'Approved'};
+    const orderId={_id:_id,orderStatus:'Shipped'};
     // const status={orderStatus:'Approved'};
     const url=`https://boiling-falls-94406.herokuapp.com/orders/orderStatus`;
     axios.put(url,orderId)

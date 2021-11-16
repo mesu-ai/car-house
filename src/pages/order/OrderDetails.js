@@ -1,4 +1,4 @@
-import { Button, Container, Paper, Rating, Typography } from '@mui/material';
+import { Button, Container, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';

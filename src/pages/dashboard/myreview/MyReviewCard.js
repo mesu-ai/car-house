@@ -1,7 +1,6 @@
 import { Alert, AlertTitle, Button, Grid, Paper, Rating } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import axios from 'axios';
 
 import React from 'react';
 

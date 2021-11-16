@@ -33,7 +33,6 @@ import AdminRoute from '../login/adminRoute/AdminRoute';
 import Navbar from '../../components/shared/Navbar';
 import AddReview from './myreview/AddReview';
 import Payment from './payment/Payment';
-import Activity from '../../components/shared/activity/Activity';
 import DashboardHome from './dashboardHome/DashboardHome';
 
 const drawerWidth = 240;
@@ -74,6 +73,10 @@ function Dashboard(props) {
        </ListItem>
        </Link>
 
+    {user.email && !isAdmin &&
+    
+    <>
+
       <Link className="dashboard-item" to={`${url}/myorder`} >
       <ListItem className="list-item" disablePadding>
               <ListItemButton >
@@ -104,6 +107,8 @@ function Dashboard(props) {
               </ListItemButton>
        </ListItem>
        </Link>
+       </>
+}
 
 {user.email && isAdmin &&
 
