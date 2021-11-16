@@ -4,10 +4,11 @@ import cover from '../../../images/carfest.png';
 
 const DashboardHome = () => {
     return (
-        <div style={{marginTop:'-70px'}}>
+        <div style={{marginTop:'-70px',backgroundColor:'#cfd8dc',padding:'15px'}}>
             <img src={cover} alt="" width="100%" height="100%"></img>
             
-            <Button color="success" variant='contained' sx={{mt:-15}}>Register Free &gt;&gt;</Button>
+            <Button  sx={{ mt: { xs:'none',sm:'none', lg: -13 } }} color="success" variant='contained' >Register Free &gt;&gt;</Button>
+            
             
             
         </div>

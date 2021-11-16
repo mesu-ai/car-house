@@ -2,11 +2,13 @@ import { Button, Container, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
+import Rating from '@mui/material/Rating';
 import { useHistory, useParams } from 'react-router';
 import Navbar from '../../components/shared/Navbar';
 
 const OrderDetails = () => {
   const [selectedCar,setSelectedCar]=useState([]);
+  
   
   
   
@@ -25,6 +27,12 @@ const OrderDetails = () => {
       history.push(url);
 
   }
+
+     const rating=parseFloat(selectedCar?.rating);
+  
+
+
+  
 
 
 
@@ -52,7 +60,9 @@ const OrderDetails = () => {
                     </Grid>
                     <Grid item xs={6} md={5} sx={{mt:4}}>
 
-                    {/* <Rating name="read-only" value={selectedCar.rating} readOnly /> */}
+                    <Rating name="read-only" value={rating.toString() ||''} readOnly  />
+
+                     
 
                     
 

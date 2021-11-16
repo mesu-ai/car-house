@@ -10,6 +10,7 @@ const Explore = () => {
    const {cars} = useCars();
 //    console.log(cars,latestCars);
    const url='/orderdetails';
+   const btnName='Details'
 
     return (
         <>
@@ -29,7 +30,7 @@ const Explore = () => {
         <Box sx={{ flexGrow: 1,mt:5 }}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {
-            cars.map(latest=><ServiceCard key={Math.random()} url={url} latest={latest}></ServiceCard>)
+            cars.map(latest=><ServiceCard key={Math.random()} url={url} latest={latest} btnName={btnName}> </ServiceCard>)
 
             }
         </Grid>
