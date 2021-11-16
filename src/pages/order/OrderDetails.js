@@ -42,7 +42,7 @@ const OrderDetails = () => {
         <Box sx={{ flexGrow: 1 }}>
         
         <Container>
-         <Typography sx={{fontWeight:'bold',mt:4,color:'black'}} variant="h4" gutterBottom component="div">
+         <Typography sx={{fontWeight:'bold',mt:4,color:'black',textTransform:'capitalize'}} variant="h4" gutterBottom component="div">
           {selectedCar.model} Car Details
          </Typography>
         <Grid container spacing={4} sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
@@ -60,11 +60,10 @@ const OrderDetails = () => {
                     </Grid>
                     <Grid item xs={6} md={5} sx={{mt:4}}>
 
+                    <Typography sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
+                     Overall Rating: 
+                    </Typography>
                     <Rating name="read-only" value={rating.toString() ||''} readOnly  />
-
-                     
-
-                    
 
                     </Grid>
                     

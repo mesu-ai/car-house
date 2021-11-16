@@ -90,9 +90,9 @@ return (
         <AlertTitle>Success</AlertTitle>
          Customer Feedback Placed — <strong>Successfully!</strong>
         </Alert>   
-    </Paper> 
-    }
-        <Grid container spacing={1}>
+        </Paper> 
+      }
+        <Grid container spacing={2}>
         <Grid item xs={12} md={7}>
       
         {/* rating */}
@@ -153,12 +153,10 @@ return (
 
         <Grid item xs={12} md={5}>
         
-        <div style={{textAlign:'end',marginRight:'50px',marginTop:'50px'}}>
+        <div style={{display:'flex',justifyContent:'center',marginTop:'50px'}}>
 
-        <img src={reviewcover} alt="" />
+        <img src={reviewcover} alt="" width="100%" />
         
-        
-
         </div>
         </Grid>
         

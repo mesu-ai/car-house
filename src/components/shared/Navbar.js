@@ -15,7 +15,6 @@ import useAuth from '../../hooks/useAuth';
 import brandlogo from '../../images/brandlogo.png';
 import '../shared/navigation/Navbar.css';
 
-
 export default function Navbar() {
   const {user,userLogOut}=useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -181,6 +180,7 @@ export default function Navbar() {
   );
 
   return (
+    
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>

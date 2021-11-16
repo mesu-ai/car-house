@@ -81,7 +81,7 @@ import Navbar from '../../components/shared/Navbar';
          <Navbar></Navbar>
         <Container>
           <Typography sx={{my:5,backgroundColor:'cornsilk',p:2,fontWeight:'bold'}} variant="h6" component="h2">
-            Order Id: {id}
+            Product Id: {id}
           </Typography>
           
            <Grid container spacing={1}>
