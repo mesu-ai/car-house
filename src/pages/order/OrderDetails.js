@@ -38,19 +38,19 @@ const OrderDetails = () => {
           {selectedCar.model} Car Details
          </Typography>
         <Grid container spacing={4} sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Grid sx={{textAlign:'start'}} item xs={6} md={7}>
+            <Grid sx={{textAlign:'start'}} item xs={12} md={7}>
                 
 
                 <Box>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={8}>
+                    <Grid item xs={6} md={7}>
                     
                     <Typography sx={{fontWeight:'bold',mt:4}} variant="h5" gutterBottom component="div">
                      Price: <span style={{color:'crimson'}}> $ {selectedCar.price}</span> 
                     </Typography>
                         
                     </Grid>
-                    <Grid item xs={6} md={4} sx={{mt:4}}>
+                    <Grid item xs={6} md={5} sx={{mt:4}}>
 
                     {/* <Rating name="read-only" value={selectedCar.rating} readOnly /> */}
 
