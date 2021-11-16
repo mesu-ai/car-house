@@ -19,7 +19,9 @@ const ReviewCard = ({creview}) => {
 
            <img src={picture} alt="" width="100px" height="80px"  />
            <div style={{textAlign:'start',marginLeft:'15px'}}>
-           <Rating name="read-only" value={rating} readOnly />
+           
+           <Rating name="half-rating-read" value={rating} precision={0.5} readOnly />
+
            <Typography sx={{color:'info.main',textTransform:'capitalize'}} variant="h5" component="div">
            {name}
           </Typography>

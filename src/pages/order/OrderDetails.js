@@ -59,11 +59,20 @@ const OrderDetails = () => {
                         
                     </Grid>
                     <Grid item xs={6} md={5} sx={{mt:4}}>
+                    
+                    <Grid spacing={2}>
+                    <Grid item xs={12} md={6} >
+                        <Typography sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
+                        Overall Rating: 
+                        </Typography>
 
-                    <Typography sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
-                     Overall Rating: 
-                    </Typography>
-                    <Rating name="read-only" value={rating.toString() ||''} readOnly  />
+                    </Grid>
+                    <Grid item xs={12} md={6} >
+                        <Rating name="half-rating-read" value={rating.toString() ||''} precision={0.5} readOnly />
+
+                    </Grid>
+                    </Grid>
+                    
 
                     </Grid>
                     
@@ -90,7 +99,7 @@ const OrderDetails = () => {
             <Paper sx={{p:3,mx:'auto',mt:3}} elevation={3} >
                 <img src={selectedCar?.photo} alt="" width='100%'/>
 
-                <Typography  sx={{mt:3,backgroundColor:'crimson',p:1,color:'white'}}> {selectedCar.brand} Latest Edition</Typography>
+                <Typography  sx={{mt:3,backgroundColor:'crimson',p:1,color:'white'}}> <span style={{textTransform:'uppercase'}}> {selectedCar.brand}</span> Latest Edition</Typography>
             </Paper>
             </Grid>
             
