@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { Box, fontSize, width } from '@mui/system';
+import { Box} from '@mui/system';
 import React from 'react';
 import './Activity.css';
 import carfest from '../../../images/carfest.png';

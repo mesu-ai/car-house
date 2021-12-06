@@ -1,14 +1,20 @@
 import { Grid, Paper, Rating } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ReviewCard = ({creview}) => {
+    useEffect(()=>{
+        AOS.init();
+
+    },[]);
     const {name,address,picture,review,rating}=creview;
     return (
         <Grid item xs={12} sm={4} md={4}  sx={{mx:'auto'}}>
-        <Paper elevation={3} sx={{p:2}}>
+        <Paper data-aos="fade-up" elevation={3} sx={{p:2}}>
             <Typography sx={{textAlign:'justify'}} variant="subtitle1" gutterBottom component="div">
             <i style={{color:'crimson'}} className="fas fa-quote-left"></i> <br />
             {review.slice(0,100)}

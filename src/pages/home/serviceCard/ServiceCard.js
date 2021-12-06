@@ -1,16 +1,22 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
 import './ServiceCard.css';
-import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({latest,url,btnName}) => {
+    useEffect(()=>{
+        AOS.init();
+
+    },[]);
     const {_id,model,feature,price,rating,photo} =latest;
 
 
 
     return (
         <Grid item xs={12} sm={4} md={4} sx={{mx:'auto'}}>
-            <Card className="card-container" sx={{p:2,}}>
+            <Card data-aos="zoom-in-up" className="card-container" sx={{p:2,}}>
             <CardActionArea>
                 <CardMedia
                 component="img"
