@@ -31,9 +31,6 @@ const BannerInfoCard = () => {
                      <Link style={{textDecoration:'none'}} to="/explore">
                     <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
                     </Link>
-                    
-                
-                   
 
                 </Paper>
             
