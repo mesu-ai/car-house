@@ -2,7 +2,6 @@ import './Banner.css';
 import { Container, Grid,Button,Typography } from '@mui/material';
 import { Box,} from '@mui/system';
 import { Link } from 'react-router-dom';
-import Paper from '@mui/material/Paper';
 import React from 'react';
 import banner from '../../../images/homebanner.png';
 import bannercover from '../../../images/bomecover.png';

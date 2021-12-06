@@ -18,7 +18,6 @@ const Activity = () => {
             
             <Button color="success" variant='contained' sx={{mt:16}}>Register Free &gt;&gt;</Button>
 
-            
         </Box>
     );
 };
