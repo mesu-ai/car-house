@@ -1,7 +1,6 @@
-import { Button, Container, Grid, Paper, Typography } from '@mui/material';
+import { Container, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './BannerInfo.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -11,11 +10,10 @@ import car3 from '../../../images/infocard3.png';
 import { experimentalStyled as styled } from '@mui/material/styles';
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: 'antiquewhite',
+    background:'aliceblue',
     ...theme.typography.body2,
     padding: theme.spacing(2),
     textAlign: 'center',
-    // color: 'red',
     borderRadius:'12px'
 }));
 
@@ -52,7 +50,7 @@ const BannerInfoCard = () => {
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {infoCards.map((item, index) => (
                         <Grid item xs={2} sm={4} md={4} key={index}>
-                            <Item data-aos="zoom-in-up" className={`${item.id===2 ? 'bannerInfo' : '' }`}>
+                            <Item data-aos="zoom-in-up" className='bannerInfo2' >
                                 <img src={item.image} alt="" width="200px" height="110px" />
                                 <Typography className="card-text" sx={{ fontWeight: 'normal' }} variant="h6" gutterBottom component="div">
                                     {item.title}

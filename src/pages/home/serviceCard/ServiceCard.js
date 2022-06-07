@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
 import './ServiceCard.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -16,7 +16,7 @@ const ServiceCard = ({latest,url,btnName}) => {
 
     return (
         <Grid item xs={12} sm={4} md={4} sx={{mx:'auto'}}>
-            <Card data-aos="zoom-in-up" className="card-container" sx={{p:2,}}>
+            <Card data-aos="zoom-in-up" className="card-container" sx={{p:2,borderRadius:'12px', boxShadow: 3,bgcolor:'antiquewhite'}}>
             <CardActionArea>
                 <CardMedia
                 component="img"
@@ -35,16 +35,19 @@ const ServiceCard = ({latest,url,btnName}) => {
                         
                     </Grid>
                     <Grid item xs={12} md={5}>
-                    <Typography sx={{fontWeight:'bold',color:'info.main'}} gutterBottom variant="h5" component="div">
+                    <Typography color='error' sx={{fontWeight:'bold'}} gutterBottom variant="h6" component="div">
                     $ {price}
                     </Typography>
                     
                     </Grid>
                 </Grid>
 
-                <Rating name="half-rating-read" value={rating} precision={0.5} readOnly />
+                <Box sx={{float:'end',textAlign:'end'}}>
+                    <Rating size='small' name="half-rating-read" value={rating} precision={0.5} readOnly />
+                </Box>
+                
 
-                <Typography sx={{textTransform:'capitalize',textAlign:'start'}} variant="subtitle1" gutterBottom component="div">
+                <Typography sx={{textTransform:'capitalize',textAlign:'start'}} variant="body1" gutterBottom component="div">
 
                     {feature}
                 </Typography>
