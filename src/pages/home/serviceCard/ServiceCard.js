@@ -29,7 +29,7 @@ const ServiceCard = ({latest,url,btnName}) => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={7}>
                     
-                    <Typography sx={{textTransform:'capitalize',fontWeight:'bold'}} gutterBottom variant="h5" component="div">
+                    <Typography sx={{textTransform:'capitalize',fontWeight:'bold'}} gutterBottom variant="h6" component="div">
                     {model}
                     </Typography>
                         

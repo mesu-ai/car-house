@@ -1,71 +1,70 @@
 import { Button, Container, Grid, Paper, Typography } from '@mui/material';
-import { Box} from '@mui/system';
+import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './BannerInfo.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import car1 from '../../../images/infocard1.png';
 import car2 from '../../../images/infocard2.png';
 import car3 from '../../../images/infocard3.png';
+import { experimentalStyled as styled } from '@mui/material/styles';
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: 'antiquewhite',
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    // color: 'red',
+    borderRadius:'12px'
+}));
+
+const infoCards = [
+    {
+        "id": 1,
+        "title": "New Car",
+        "image": car1
+    },
+    {
+        "id": 2,
+        "title": "Reconditon Car",
+        "image": car2
+    },
+    {
+        "id": 3,
+        "title": "Used Car",
+        "image": car3
+    },
+]
 
 const BannerInfoCard = () => {
-    useEffect(()=>{
+    useEffect(() => {
         AOS.init({
-            delay: 0, 
+            delay: 0,
             duration: 400,
             easing: 'ease'
         });
 
-    },[]);
+    }, []);
     return (
-        <Box sx={{ width: '100%',mb:4,mt:-15 }}>
-        <Container>
-        <Grid  container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-            <Grid item xs={12} sm={6} md={6} lg={4}>
-                <Paper data-aos="zoom-in-up" className="bannercard" sx={{p:2,backgroundColor:'rgba(200, 236, 236, 0.747)'}}  elevation={3}>
-                     <img src={car1} alt="" width="200px" height="110px"/>
-                    <Typography className="cardfont" sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
-                    New Car
-                    
-                     </Typography>
-                     <Link style={{textDecoration:'none'}} to="/explore">
-                    <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
-                    </Link>
+        <Box sx={{ width: '100%', mb: 4, mt: -15 }}>
+            <Container>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {infoCards.map((item, index) => (
+                        <Grid item xs={2} sm={4} md={4} key={index}>
+                            <Item data-aos="zoom-in-up" className={`${item.id===2 ? 'bannerInfo' : '' }`}>
+                                <img src={item.image} alt="" width="200px" height="110px" />
+                                <Typography className="card-text" sx={{ fontWeight: 'normal' }} variant="h6" gutterBottom component="div">
+                                    {item.title}
+                                </Typography>
 
-                </Paper>
-            
-            </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={4}>
-                <Paper data-aos="zoom-in-up" className="bannercard" sx={{p:2}} elevation={3}>
-                    <img src={car2} alt="" width="200px" height="110px"/>
-                    <Typography className="cardfont" sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
-                    Recondition Car
-                    </Typography>
+                            </Item>
+                        </Grid>
+                    ))}
+                </Grid>
 
-                    <Link style={{textDecoration:'none'}} to="/explore">
-                    <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
-                    </Link>
-                    
-                    
-                </Paper>
-            
-            </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={4}>
-                <Paper data-aos="zoom-in-up" className="bannercard" sx={{p:2,backgroundColor:'rgba(200, 236, 236, 0.747)'}} elevation={3}>
-                   <img src={car3} alt="" width="200px" height="110px"/>
-                   <Typography className="cardfont" sx={{fontWeight:'bold'}} variant="h5" gutterBottom component="div">
-                    Used Car
-                    </Typography>
-                    
-                    <Link style={{textDecoration:'none'}} to="/explore">
-                    <Button sx={{backgroundColor:'info.main'}} variant="contained">Explore</Button>
-                    </Link>
-                
-                </Paper>
-            
-            </Grid>
-        </Grid>
-        </Container>
+
+            </Container>
         </Box>
     );
 };
